@@ -3,7 +3,10 @@ FROM python:3.11 AS build
 ENV DEBIAN_FRONTEND=noninteractive
 ENV USE_NNPACK=0
 
-RUN apt-get update && apt-get install --no-install-recommends -y libgl1 && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && \
+    apt-get install --no-install-recommends -y libgl1=1.7.0-1+b2 && \
+    rm -rf /var/lib/apt/lists/*
+    
 COPY --from=ghcr.io/astral-sh/uv:0.8.0 /uv /bin/
 RUN git clone https://github.com/WongKinYiu/yolov9.git /yolov9
 
