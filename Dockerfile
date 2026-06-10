@@ -24,7 +24,7 @@ RUN sed -i "s/ckpt = torch.load(attempt_download(w), map_location='cpu')/ckpt = 
     python3 export.py --weights ./yolov9-s.pt --imgsz 320 --simplify --include onnx && \
     python3 export.py --weights ./yolov9-t.pt --imgsz 320 --simplify --include onnx
 
-FROM alpine:3.23
+FROM alpine:3.24
 
 COPY --from=build /yolov9/yolov9-s.onnx /yolov9-s-320.onnx
 COPY --from=build /yolov9/yolov9-t.onnx /yolov9-t-320.onnx
