@@ -1,6 +1,6 @@
 FROM ghcr.io/astral-sh/uv:0.10.2 AS uv
 
-FROM python:3.11 AS build
+FROM python:3.14 AS build
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV USE_NNPACK=0
